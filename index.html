@@ -8,6 +8,7 @@
 
 <body>
     <script>
+        "use strict";
         // Some data we can work with
         const inventors = [{
                 first: 'Albert',
@@ -99,7 +100,19 @@
         return first > second ? 1 : -1
     });
     
-    console.table(sortLived);
+    //6.sort exercise
+    // Sort the people alphabetically by last name
+    
+    const sortByLastName = people.sort((a, b) => {
+        let lastA = a.split(', ');
+        lastA = lastA[1];
+        let lastB = b.split(', ');
+        lastB = lastB[1];
+        
+        return lastA > lastB ? 1 : -1;
+    });
+        
+    console.log(sortByLastName);
     </script>
 
 </body>
