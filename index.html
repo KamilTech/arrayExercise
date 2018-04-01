@@ -144,8 +144,17 @@
         function reverseInt(int) {
             return parseInt(int.toString().split('').reverse().join('')) * Math.sign(int);
         }
+        
+        //10. CAPITALIZE LETTERS
+        // Return a string with the first letter of every word capitalized
+        // ex capitalizeLetters('i love javascript') === 'I Love Javascript'
+        
+        function capitalizeLetters(text) {
+            return text.toLowerCase().split(' ')
+                .map(txt => txt.charAt(0).toUpperCase() + txt.slice(1)).join(' ');
+        }
 
-        console.log(reverseInt(521));
+        console.log(capitalizeLetters('i love javascript'));
 
     </script>
 
