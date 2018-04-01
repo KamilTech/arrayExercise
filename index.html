@@ -56,76 +56,97 @@
 
         const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilarire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Benningtion, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berer, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Bindo, Frank', 'Birrell, Augustine', 'Black Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
         let str = 'hello';
+        let str2 = 'hanah';
 
-        
-    // Array.prototype.filter()
-    // 1. Filter the list of inventors on those who were born in the 1500's
-    // #1
-    const fifteen = inventors.filter(function(inventor) {
-       if(inventor.year >= 1500 && inventor.year < 1600)
-           return true;
-    });
-    // #2
-    const fifteen2 = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600);
-        
-    //Array.prototype.map()
-    //2.Give us an array of the inventory first and last names
-    const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
-        
-    //Array.prototype.sort()
-    //3.Sort the inventors by brithdate, oldest to youngest
-        
-    // #1
-    const ordered = inventors.sort(function(a, b){
-        if(a.year > b.year) {
-            return 1;
-        } else {
-            return -1;
+
+        // Array.prototype.filter()
+        // 1. Filter the list of inventors on those who were born in the 1500's
+        // #1
+        const fifteen = inventors.filter(function(inventor) {
+            if (inventor.year >= 1500 && inventor.year < 1600)
+                return true;
+        });
+        // #2
+        const fifteen2 = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600);
+
+        //Array.prototype.map()
+        //2.Give us an array of the inventory first and last names
+        const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+
+        //Array.prototype.sort()
+        //3.Sort the inventors by brithdate, oldest to youngest
+
+        // #1
+        const ordered = inventors.sort(function(a, b) {
+            if (a.year > b.year) {
+                return 1;
+            } else {
+                return -1;
+            }
+        });
+
+        // #2
+        const ordered2 = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+
+        //Array.prototype.reduce()
+        //4.How many years did all the inventors live?
+
+        const totalYears = inventors.reduce((total, inventor) => {
+            return total + (inventor.passed - inventor.year);
+        }, 0);
+
+        //5.Sort the inventors by years lived
+        const sortLived = inventors.sort(function(a, b) {
+            const first = a.passed - a.year;
+            const second = b.passed - b.year;
+            return first > second ? 1 : -1
+        });
+
+        //6.sort exercise
+        // Sort the people alphabetically by last name
+
+        const sortByLastName = people.sort((a, b) => {
+            let lastA = a.split(', ');
+            lastA = lastA[1];
+            let lastB = b.split(', ');
+            lastB = lastB[1];
+
+            return lastA > lastB ? 1 : -1;
+        });
+
+        //7. Reverse a string 
+        // Return a string in reverse
+        // ex. reverseString('hello') === 'olleh'
+
+        function reverseString(str) {
+            return str.split('').reduce((total, next) => {
+                return next + total;
+            }, '');
+
+            // or
+            // return str.split('').reverse().join('');
         }
-    });
-    
-    // #2
-    const ordered2 = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
-        
-    //Array.prototype.reduce()
-    //4.How many years did all the inventors live?
-    
-    const totalYears = inventors.reduce((total, inventor) => {
-        return total + (inventor.passed - inventor.year);
-    }, 0);
-        
-    //5.Sort the inventors by years lived
-    const sortLived = inventors.sort(function(a,b){
-        const first = a.passed - a.year;
-        const second = b.passed - b.year;
-        return first > second ? 1 : -1
-    });
-    
-    //6.sort exercise
-    // Sort the people alphabetically by last name
-    
-    const sortByLastName = people.sort((a, b) => {
-        let lastA = a.split(', ');
-        lastA = lastA[1];
-        let lastB = b.split(', ');
-        lastB = lastB[1];
-        
-        return lastA > lastB ? 1 : -1;
-    });
-        
-    //7. Reverse a string 
-    // Return a string in reverse
-    // ex. reverseString('hello') === 'olleh'
-        
-    function reverseString(str) {
-        return str.split('').reduce((total, next)=> {
-            return next + total;
-        }, '');
-        
-        // or
-        // return str.split('').reverse().join('');
-    }
-    
+
+        //8.VALIDATE A PALINDROME
+        // Return true if palindrome and false if not 
+        // ex.isPalindrome('racecar') === 'true', isPalindrome
+
+        function isPalindrome(text) {
+            return text.split('').reduce((total, next) => {
+                return next + total;
+            }, '') === text;
+        }
+
+        //9. REVERSE AN INTEGER
+        // Return an integer in reverse
+        // ex. reverseInt(521) === 125
+
+        function reverseInt(int) {
+            return parseInt(int.toString().split('').reverse().join('')) * Math.sign(int);
+        }
+
+        console.log(reverseInt(521));
+
     </script>
 
 </body>
