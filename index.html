@@ -198,8 +198,29 @@
                 }
             }
         }
+        //13. LONGEST WORD
+        // Return the longest word of a string
+        // If more than one longest word, put into an array
+        // ex. longestWord('Hello, my name is Brad') === 'hello'
+        // ex. longestWord('Hello there, my name is Brad') === ['hello', 'there']
+        
+        function longestWord(txt) {
+            const arr = txt.match(/[A-z0-9]+/g);
+            let asd = [];
+            
+            let some = arr.reduce((prev, next) => {
+                if (next.length > prev.length) {
+                    asd = [next];
+                } else {
+                    if (next.length === prev.length) asd.push(next); 
+                }
+                return asd[0];
+            }, '');
+            
+            return asd;
+        }
 
-        console.log(fizzBuzz());
+        console.log(longestWord('Hello there, my name is brad'));
     </script>
 
 </body>
