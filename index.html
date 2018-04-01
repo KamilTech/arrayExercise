@@ -153,8 +153,36 @@
             return text.toLowerCase().split(' ')
                 .map(txt => txt.charAt(0).toUpperCase() + txt.slice(1)).join(' ');
         }
+        
+        //11. MAX CHARACTER
+        // Return the character that is most common in a string
+        // ex. maxCharacter('javascript') == 'a'
+        
+        function maxCharacter(txt) {
+            let amount,
+                  val; 
+            
+            const object = txt.split('').reduce((total, item) => {
+                  total[item] ? total[item]++ : total[item] = 1;
+                  return total;
+            }, {});
+        
+            for (var key in object) { 
+                if (amount) {
+                    if (object[key] > amount) 
+                        {
+                            amount = object[key];
+                            val = key;
+                        }
+                } else {
+                    amount = object[key];
+                    val = key;
+                }
+            }
+            return val;
+        }
 
-        console.log(capitalizeLetters('i love javascript'));
+        console.log(maxCharacter('javaascccccript'));
 
     </script>
 
