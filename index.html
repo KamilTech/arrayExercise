@@ -55,6 +55,7 @@
         ];
 
         const people = ['Beck, Glenn', 'Becker, Carl', 'Beckett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilarire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Benningtion, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berer, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Bindo, Frank', 'Birrell, Augustine', 'Black Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
+        let str = 'hello';
 
         
     // Array.prototype.filter()
@@ -112,7 +113,19 @@
         return lastA > lastB ? 1 : -1;
     });
         
-    console.log(sortByLastName);
+    //7. Reverse a string 
+    // Return a string in reverse
+    // ex. reverseString('hello') === 'olleh'
+        
+    function reverseString(str) {
+        return str.split('').reduce((total, next)=> {
+            return next + total;
+        }, '');
+        
+        // or
+        // return str.split('').reverse().join('');
+    }
+    
     </script>
 
 </body>
