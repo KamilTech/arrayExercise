@@ -69,10 +69,12 @@
         // #2
         const fifteen2 = inventors.filter(inventor => inventor.year >= 1500 && inventor.year < 1600);
 
+        
         //Array.prototype.map()
         //2.Give us an array of the inventory first and last names
         const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
 
+        
         //Array.prototype.sort()
         //3.Sort the inventors by brithdate, oldest to youngest
 
@@ -88,6 +90,7 @@
         // #2
         const ordered2 = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
 
+        
         //Array.prototype.reduce()
         //4.How many years did all the inventors live?
 
@@ -95,6 +98,7 @@
             return total + (inventor.passed - inventor.year);
         }, 0);
 
+        
         //5.Sort the inventors by years lived
         const sortLived = inventors.sort(function(a, b) {
             const first = a.passed - a.year;
@@ -102,9 +106,9 @@
             return first > second ? 1 : -1
         });
 
+        
         //6.sort exercise
         // Sort the people alphabetically by last name
-
         const sortByLastName = people.sort((a, b) => {
             let lastA = a.split(', ');
             lastA = lastA[1];
@@ -114,10 +118,10 @@
             return lastA > lastB ? 1 : -1;
         });
 
+        
         //7. Reverse a string 
         // Return a string in reverse
         // ex. reverseString('hello') === 'olleh'
-
         function reverseString(str) {
             return str.split('').reduce((total, next) => {
                 return next + total;
@@ -127,37 +131,37 @@
             // return str.split('').reverse().join('');
         }
 
+        
         //8.VALIDATE A PALINDROME
         // Return true if palindrome and false if not 
         // ex.isPalindrome('racecar') === 'true', isPalindrome
-
         function isPalindrome(text) {
             return text.split('').reduce((total, next) => {
                 return next + total;
             }, '') === text;
         }
 
+        
         //9. REVERSE AN INTEGER
         // Return an integer in reverse
         // ex. reverseInt(521) === 125
-
         function reverseInt(int) {
             return parseInt(int.toString().split('').reverse().join('')) * Math.sign(int);
         }
 
+        
         //10. CAPITALIZE LETTERS
         // Return a string with the first letter of every word capitalized
         // ex capitalizeLetters('i love javascript') === 'I Love Javascript'
-
         function capitalizeLetters(text) {
             return text.toLowerCase().split(' ')
                 .map(txt => txt.charAt(0).toUpperCase() + txt.slice(1)).join(' ');
         }
 
+        
         //11. MAX CHARACTER
         // Return the character that is most common in a string
         // ex. maxCharacter('javascript') == 'a'
-
         function maxCharacter(txt) {
             let amount,
                 val;
@@ -181,9 +185,9 @@
             return val;
         }
 
+        
         //12. FIZZBUZZ
         // Write a program that prints all the numbers from 1 to 100. For multiples of 3, instead of the number, print "Fizz", for multiples of 5 print "Buzz". For numbers which are multiples of both 3 and 5, print "FizzBuzz".
-
         function fizzBuzz() {
             for (let i = 1; i <= 100; i++) {
                 if ((i % 3 === 0) && (i % 5 === 0)) {
@@ -197,12 +201,13 @@
                 }
             }
         }
+        
+        
         //13. LONGEST WORD
         // Return the longest word of a string
         // If more than one longest word, put into an array
         // ex. longestWord('Hello, my name is Brad') === 'hello'
         // ex. longestWord('Hello there, my name is Brad') === ['hello', 'there']
-
         function longestWord(txt) {
             const arr = txt.match(/[A-z0-9]+/g);
             let asd = [];
@@ -219,10 +224,10 @@
             return asd;
         }
 
+        
         //14. ARRAY CHUNKING
         // Split an array into chunked arrays of a specific lenght
         // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3,],[4, 5, 6],[7]]
-
         function chunkArray(array, amount) {
             let mainArray = [],
                 some = [];
@@ -239,8 +244,16 @@
             return mainArray;
         }
 
-        console.log(chunkArray([1, 2, 4, 5, 6, 7], 3));
+        
+        //15. FLATTEN ARRAY
+        // Take an array of arrays and flatten to a single array
+        // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
+        function flattenArray(arrays) {
+            return arrays.reduce((a,b) => a.concat(b));
+        }
+        
+        console.log(flattenArray([[1, 2], [3, 4], [5, 6], [7]]));
     </script>
 
 </body>
