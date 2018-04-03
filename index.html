@@ -259,7 +259,7 @@
         // ex. 'Dormitory' === 'dirty room##'
         function isAnagram(str1, str2) {
             const s1 = str1.toLowerCase().replace(/[^\w]/g, '').toString().split(''),
-                  s2 = str2.toLowerCase().replace(/[^\w]/g, '').toString().split('');
+                s2 = str2.toLowerCase().replace(/[^\w]/g, '').toString().split('');
 
             s1.forEach((value) => {
                 if (!s1.includes(value)) return false
@@ -268,7 +268,61 @@
             return true;
         }
 
-        console.log(isAnagram('Dormitory', 'dirty room##'));
+        // New arrays
+
+        const people2 = [{
+                name: 'Wes',
+                year: 1988
+            },
+            {
+                name: 'Kait',
+                year: 1986
+            },
+            {
+                name: 'Irv',
+                year: 1970
+            },
+            {
+                name: 'Lux',
+                year: 2015
+            }
+        ];
+
+        const comments = [{
+                text: 'Love this!',
+                id: 523423
+            },
+            {
+                text: 'Super good',
+                id: 823423
+            },
+            {
+                text: 'You are the best',
+                id: 203842
+            },
+            {
+                text: 'Ramen in my fav food ever',
+                id: 123523
+            },
+            {
+                text: 'Nice Nice Nice!',
+                id: 542328
+            },
+        ];
+
+        // Array.prototype.some() // is at least one person 19?
+        const isAdult = people2.some(function(person) {
+            const currentYear = (new Date()).getFullYear();
+            if (currentYear - person.year >= 19) {
+                return true;
+            }
+        });
+
+        // or shorthand version
+
+        const isAdult2 = people2.some(person => (new Date()).getFullYear() - person.year >= 19);
+
+        console.log(isAdult2);
 
     </script>
 
